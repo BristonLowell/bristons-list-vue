@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { api } from './AxiosService'
 import { AppState } from '../AppState'
 import router from '../router'
@@ -25,7 +26,7 @@ class HousesService {
 
   async removeHouse(houseId) {
     try {
-      if (window.confirm()) {
+      if (window.confirm('Are you sure?')) {
         await api.delete('/houses/' + houseId)
         router.push({ name: 'Houses' })
       }

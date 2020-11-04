@@ -2,7 +2,7 @@
   <div class="job-component col-3 border border-dark m-5 p-2 shadow-lg">
     <router-link :to="{name: 'ActiveJob', params: { jobId: jobProp._id}}" class="text-dark">
       <h3>
-        Title: {{ jobProp.jobTitle }}
+        {{ jobProp.jobTitle }}
       </h3>
     </router-link>
     <p>

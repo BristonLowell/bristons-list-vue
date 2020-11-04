@@ -1,13 +1,38 @@
 <template>
   <div class="jobs container-fluid">
     <h1>Jobs</h1>
-    <form class="form-group" @submit.prevent="createJob()">
+    <form class="form-group" @submit.prevent="createJob">
+      <input type="text"
+             class="form-control"
+             aria-describedby="helpId"
+             placeholder="Title"
+             v-model="state.newJob.jobTitle"
+      >
+      <input type="text"
+             class="form-control"
+             aria-describedby="helpId"
+             placeholder="Company"
+             v-model="state.newJob.company"
+      >
+      <input type="number"
+             class="form-control"
+             aria-describedby="helpId"
+             placeholder="Dollars per hour"
+             v-model="state.newJob.rate"
+      >
+      <input type="number"
+             class="form-control"
+             aria-describedby="helpId"
+             placeholder="Hours per week"
+             v-model="state.newJob.hours"
+      >
       <input type="text"
              class="form-control"
              aria-describedby="helpId"
              placeholder="description"
              v-model="state.newJob.description"
       >
+
       <button type="submit" class="btn btn-info">
         Create Job
       </button>
@@ -37,7 +62,7 @@ export default {
       state,
       jobs: computed(() => AppState.jobs),
       createJob() {
-
+        jobsService.createJob(state.newJob)
       }
     }
   },
